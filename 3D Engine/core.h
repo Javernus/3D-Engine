@@ -22,4 +22,6 @@
 #include <stdexcept>
 #include <cstdlib>
 
+#include <vector>
+
 #endif /* Header_h */
