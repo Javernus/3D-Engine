@@ -24,6 +24,8 @@
 		5E6150542742E95B00582F0D /* Extensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150532742E95B00582F0D /* Extensions.cpp */; };
 		5E6150562742E96E00582F0D /* Layers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150552742E96E00582F0D /* Layers.cpp */; };
 		5E6150582742F34500582F0D /* Swapchain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150572742F34500582F0D /* Swapchain.cpp */; };
+		5E61505C27430E0700582F0D /* GraphicsPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E61505B27430E0700582F0D /* GraphicsPipeline.cpp */; };
+		5E6150662743162D00582F0D /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150642743162D00582F0D /* Utils.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +61,12 @@
 		5E6150532742E95B00582F0D /* Extensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Extensions.cpp; sourceTree = "<group>"; };
 		5E6150552742E96E00582F0D /* Layers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Layers.cpp; sourceTree = "<group>"; };
 		5E6150572742F34500582F0D /* Swapchain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Swapchain.cpp; sourceTree = "<group>"; };
+		5E61505B27430E0700582F0D /* GraphicsPipeline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicsPipeline.cpp; sourceTree = "<group>"; };
+		5E61505D2743111000582F0D /* shader.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.vert; sourceTree = "<group>"; };
+		5E6150602743123E00582F0D /* shader.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.frag; sourceTree = "<group>"; };
+		5E6150642743162D00582F0D /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		5E6150682743224F00582F0D /* frag.spv */ = {isa = PBXFileReference; lastKnownFileType = file; path = frag.spv; sourceTree = "<group>"; };
+		5E6150692743224F00582F0D /* vert.spv */ = {isa = PBXFileReference; lastKnownFileType = file; path = vert.spv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 		5E10FA12273FE85800DD965C = {
 			isa = PBXGroup;
 			children = (
+				5E61505F274311F200582F0D /* Shaders */,
 				5E10FA1D273FE85800DD965C /* Vulkan Renderer */,
 				5E10FA37273FEC0B00DD965C /* Vulkan Renderer */,
 				5E10FA3E273FEDC800DD965C /* Frameworks */,
@@ -109,6 +118,8 @@
 		5E6150472742E70000582F0D /* VKRenderer */ = {
 			isa = PBXGroup;
 			children = (
+				5E6150672743163400582F0D /* Utils */,
+				5E61505A27430DEF00582F0D /* GraphicsPipeline */,
 				5E6150482742E72800582F0D /* VKRenderer.cpp */,
 				5E6150492742E72800582F0D /* VKRenderer.hpp */,
 				5E61504B2742E7B700582F0D /* InitAndDestruct.cpp */,
@@ -122,6 +133,33 @@
 			path = VKRenderer;
 			sourceTree = "<group>";
 		};
+		5E61505A27430DEF00582F0D /* GraphicsPipeline */ = {
+			isa = PBXGroup;
+			children = (
+				5E61505B27430E0700582F0D /* GraphicsPipeline.cpp */,
+			);
+			path = GraphicsPipeline;
+			sourceTree = "<group>";
+		};
+		5E61505F274311F200582F0D /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				5E6150682743224F00582F0D /* frag.spv */,
+				5E6150692743224F00582F0D /* vert.spv */,
+				5E61505D2743111000582F0D /* shader.vert */,
+				5E6150602743123E00582F0D /* shader.frag */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		5E6150672743163400582F0D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5E6150642743162D00582F0D /* Utils.cpp */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +170,7 @@
 				5E10FA19273FE85800DD965C /* CopyFiles */,
 				5E10FA18273FE85800DD965C /* Frameworks */,
 				5E10FA17273FE85800DD965C /* Sources */,
+				5E6150622743140C00582F0D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -174,11 +213,32 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E6150622743140C00582F0D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/Shaders\"\n/usr/local/bin/glslangValidator -V shader.vert\n/usr/local/bin/glslangValidator -V shader.frag\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5E10FA17273FE85800DD965C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E61505C27430E0700582F0D /* GraphicsPipeline.cpp in Sources */,
 				5E6150582742F34500582F0D /* Swapchain.cpp in Sources */,
 				5E10FA1F273FE85800DD965C /* main.cpp in Sources */,
 				5E6150522742E92E00582F0D /* DebugUtils.cpp in Sources */,
@@ -186,6 +246,7 @@
 				5E6150562742E96E00582F0D /* Layers.cpp in Sources */,
 				5E61504C2742E7B700582F0D /* InitAndDestruct.cpp in Sources */,
 				5E61504E2742E87F00582F0D /* DeviceManagement.cpp in Sources */,
+				5E6150662743162D00582F0D /* Utils.cpp in Sources */,
 				5E6150542742E95B00582F0D /* Extensions.cpp in Sources */,
 				5E61504A2742E72800582F0D /* VKRenderer.cpp in Sources */,
 			);

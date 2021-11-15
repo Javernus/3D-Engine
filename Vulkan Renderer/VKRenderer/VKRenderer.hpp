@@ -26,6 +26,7 @@
 #include <optional>
 #include <cstdint> 
 #include <algorithm>
+#include <fstream>
 
 struct QueueFamilyIndices {
     std::optional<uint32_t> graphicsFamily;
@@ -78,8 +79,9 @@ class VKRenderer {
     VkFormat swapChainImageFormat;
     VkExtent2D swapChainExtent;
     std::vector<VkImageView> swapChainImageViews;
-
-    
+    VkRenderPass renderPass;
+    VkPipelineLayout pipelineLayout;
+    VkPipeline graphicsPipeline;
     
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
                                                         VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
@@ -90,6 +92,10 @@ class VKRenderer {
 public:
     void run();
 private:
+    // Utils/
+    //   Utils
+    static std::vector<char> readFile(const std::string& filename);
+    
     // VKRenderer
     void createInstance();
     void mainLoop();
@@ -128,6 +134,12 @@ private:
     VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
     void createSwapChain();
     void createImageViews();
+    
+    // GraphicsPipeline/
+    //   GraphicsPipeline
+    void createGraphicsPipeline();
+    VkShaderModule createShaderModule(const std::vector<char>& code);
+    void createRenderPass();
 };
 
 #endif /* VKRenderer_hpp */

@@ -24,9 +24,15 @@ void VKRenderer::initVulkan() {
     createLogicalDevice();
     createSwapChain();
     createImageViews();
+    createRenderPass();
+    createGraphicsPipeline();
 }
 
 void VKRenderer::cleanup() {
+    vkDestroyPipeline(device, graphicsPipeline, nullptr);
+    vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
+    vkDestroyRenderPass(device, renderPass, nullptr);
+    
     for (auto imageView : swapChainImageViews) {
         vkDestroyImageView(device, imageView, nullptr);
     }
