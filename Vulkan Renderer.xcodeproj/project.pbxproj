@@ -16,6 +16,13 @@
 		5E2FA15327415F5A00167511 /* libvulkan.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E2FA14E27415F5400167511 /* libvulkan.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5E2FA15527425A8300167511 /* libMoltenVK.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2FA15427425A8300167511 /* libMoltenVK.dylib */; };
 		5E2FA15627425A8600167511 /* libMoltenVK.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E2FA15427425A8300167511 /* libMoltenVK.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5E61504A2742E72800582F0D /* VKRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150482742E72800582F0D /* VKRenderer.cpp */; };
+		5E61504C2742E7B700582F0D /* InitAndDestruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E61504B2742E7B700582F0D /* InitAndDestruct.cpp */; };
+		5E61504E2742E87F00582F0D /* DeviceManagement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E61504D2742E87F00582F0D /* DeviceManagement.cpp */; };
+		5E6150502742E90900582F0D /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E61504F2742E90900582F0D /* Window.cpp */; };
+		5E6150522742E92E00582F0D /* DebugUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150512742E92E00582F0D /* DebugUtils.cpp */; };
+		5E6150542742E95B00582F0D /* Extensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150532742E95B00582F0D /* Extensions.cpp */; };
+		5E6150562742E96E00582F0D /* Layers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150552742E96E00582F0D /* Layers.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,12 +43,20 @@
 
 /* Begin PBXFileReference section */
 		5E10FA1E273FE85800DD965C /* main.cpp */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
-		5E10FA37273FEC0B00DD965C /* 3D Engine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "3D Engine"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E10FA37273FEC0B00DD965C /* Vulkan Renderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Vulkan Renderer"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E10FA3F273FEDC800DD965C /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
-		5E10FA48273FF53300DD965C /* core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		5E10FA48273FF53300DD965C /* main.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = main.hpp; sourceTree = "<group>"; };
 		5E2FA14E27415F5400167511 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../VulkanSDK/1.2.189.0/macOS/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
 		5E2FA14F27415F5400167511 /* libvulkan.1.2.189.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.2.189.dylib; path = ../../../VulkanSDK/1.2.189.0/macOS/lib/libvulkan.1.2.189.dylib; sourceTree = "<group>"; };
 		5E2FA15427425A8300167511 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = ../../../VulkanSDK/1.2.189.0/MoltenVK/dylib/macOS/libMoltenVK.dylib; sourceTree = "<group>"; };
+		5E6150482742E72800582F0D /* VKRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VKRenderer.cpp; sourceTree = "<group>"; };
+		5E6150492742E72800582F0D /* VKRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VKRenderer.hpp; sourceTree = "<group>"; };
+		5E61504B2742E7B700582F0D /* InitAndDestruct.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InitAndDestruct.cpp; sourceTree = "<group>"; };
+		5E61504D2742E87F00582F0D /* DeviceManagement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeviceManagement.cpp; sourceTree = "<group>"; };
+		5E61504F2742E90900582F0D /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		5E6150512742E92E00582F0D /* DebugUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DebugUtils.cpp; sourceTree = "<group>"; };
+		5E6150532742E95B00582F0D /* Extensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Extensions.cpp; sourceTree = "<group>"; };
+		5E6150552742E96E00582F0D /* Layers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Layers.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,19 +77,20 @@
 		5E10FA12273FE85800DD965C = {
 			isa = PBXGroup;
 			children = (
-				5E10FA1D273FE85800DD965C /* 3D Engine */,
-				5E10FA37273FEC0B00DD965C /* 3D Engine */,
+				5E10FA1D273FE85800DD965C /* Vulkan Renderer */,
+				5E10FA37273FEC0B00DD965C /* Vulkan Renderer */,
 				5E10FA3E273FEDC800DD965C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		5E10FA1D273FE85800DD965C /* 3D Engine */ = {
+		5E10FA1D273FE85800DD965C /* Vulkan Renderer */ = {
 			isa = PBXGroup;
 			children = (
+				5E6150472742E70000582F0D /* VKRenderer */,
 				5E10FA1E273FE85800DD965C /* main.cpp */,
-				5E10FA48273FF53300DD965C /* core.h */,
+				5E10FA48273FF53300DD965C /* main.hpp */,
 			);
-			path = "3D Engine";
+			path = "Vulkan Renderer";
 			sourceTree = "<group>";
 		};
 		5E10FA3E273FEDC800DD965C /* Frameworks */ = {
@@ -88,12 +104,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5E6150472742E70000582F0D /* VKRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				5E6150482742E72800582F0D /* VKRenderer.cpp */,
+				5E6150492742E72800582F0D /* VKRenderer.hpp */,
+				5E61504B2742E7B700582F0D /* InitAndDestruct.cpp */,
+				5E61504D2742E87F00582F0D /* DeviceManagement.cpp */,
+				5E61504F2742E90900582F0D /* Window.cpp */,
+				5E6150512742E92E00582F0D /* DebugUtils.cpp */,
+				5E6150532742E95B00582F0D /* Extensions.cpp */,
+				5E6150552742E96E00582F0D /* Layers.cpp */,
+			);
+			path = VKRenderer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E10FA1A273FE85800DD965C /* 3D Engine */ = {
+		5E10FA1A273FE85800DD965C /* Vulkan Renderer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E10FA22273FE85800DD965C /* Build configuration list for PBXNativeTarget "3D Engine" */;
+			buildConfigurationList = 5E10FA22273FE85800DD965C /* Build configuration list for PBXNativeTarget "Vulkan Renderer" */;
 			buildPhases = (
 				5E10FA19273FE85800DD965C /* CopyFiles */,
 				5E10FA18273FE85800DD965C /* Frameworks */,
@@ -103,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = "3D Engine";
+			name = "Vulkan Renderer";
 			productName = "3D Engine";
-			productReference = 5E10FA37273FEC0B00DD965C /* 3D Engine */;
+			productReference = 5E10FA37273FEC0B00DD965C /* Vulkan Renderer */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +153,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5E10FA16273FE85800DD965C /* Build configuration list for PBXProject "3D Engine" */;
+			buildConfigurationList = 5E10FA16273FE85800DD965C /* Build configuration list for PBXProject "Vulkan Renderer" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,7 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E10FA1A273FE85800DD965C /* 3D Engine */,
+				5E10FA1A273FE85800DD965C /* Vulkan Renderer */,
 			);
 		};
 /* End PBXProject section */
@@ -146,6 +177,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E10FA1F273FE85800DD965C /* main.cpp in Sources */,
+				5E6150522742E92E00582F0D /* DebugUtils.cpp in Sources */,
+				5E6150502742E90900582F0D /* Window.cpp in Sources */,
+				5E6150562742E96E00582F0D /* Layers.cpp in Sources */,
+				5E61504C2742E7B700582F0D /* InitAndDestruct.cpp in Sources */,
+				5E61504E2742E87F00582F0D /* DeviceManagement.cpp in Sources */,
+				5E6150542742E95B00582F0D /* Extensions.cpp in Sources */,
+				5E61504A2742E72800582F0D /* VKRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +352,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E10FA16273FE85800DD965C /* Build configuration list for PBXProject "3D Engine" */ = {
+		5E10FA16273FE85800DD965C /* Build configuration list for PBXProject "Vulkan Renderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E10FA20273FE85800DD965C /* Debug */,
@@ -323,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E10FA22273FE85800DD965C /* Build configuration list for PBXNativeTarget "3D Engine" */ = {
+		5E10FA22273FE85800DD965C /* Build configuration list for PBXNativeTarget "Vulkan Renderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E10FA23273FE85800DD965C /* Debug */,

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/jakejongejans/Documents/Programming/3D Engine/Vulkan Renderer.xcodeproj">
    </FileRef>
 </Workspace>
