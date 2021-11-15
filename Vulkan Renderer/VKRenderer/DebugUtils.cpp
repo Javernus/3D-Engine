@@ -39,6 +39,6 @@ void VKRenderer::setupDebugMessenger() {
     populateDebugMessengerCreateInfo(createInfo);
     
     if (CreateDebugUtilsMessengerEXT(instance, &createInfo, nullptr, &debugMessenger) != VK_SUCCESS) {
-        throw std::runtime_error("failed to set up debug messenger!");
+        throw std::runtime_error("Failed to set up debug messenger!");
     }
 }

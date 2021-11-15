@@ -23,6 +23,7 @@
 		5E6150522742E92E00582F0D /* DebugUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150512742E92E00582F0D /* DebugUtils.cpp */; };
 		5E6150542742E95B00582F0D /* Extensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150532742E95B00582F0D /* Extensions.cpp */; };
 		5E6150562742E96E00582F0D /* Layers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150552742E96E00582F0D /* Layers.cpp */; };
+		5E6150582742F34500582F0D /* Swapchain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E6150572742F34500582F0D /* Swapchain.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,7 @@
 		5E6150512742E92E00582F0D /* DebugUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DebugUtils.cpp; sourceTree = "<group>"; };
 		5E6150532742E95B00582F0D /* Extensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Extensions.cpp; sourceTree = "<group>"; };
 		5E6150552742E96E00582F0D /* Layers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Layers.cpp; sourceTree = "<group>"; };
+		5E6150572742F34500582F0D /* Swapchain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Swapchain.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,11 +112,12 @@
 				5E6150482742E72800582F0D /* VKRenderer.cpp */,
 				5E6150492742E72800582F0D /* VKRenderer.hpp */,
 				5E61504B2742E7B700582F0D /* InitAndDestruct.cpp */,
-				5E61504D2742E87F00582F0D /* DeviceManagement.cpp */,
-				5E61504F2742E90900582F0D /* Window.cpp */,
-				5E6150512742E92E00582F0D /* DebugUtils.cpp */,
 				5E6150532742E95B00582F0D /* Extensions.cpp */,
 				5E6150552742E96E00582F0D /* Layers.cpp */,
+				5E6150512742E92E00582F0D /* DebugUtils.cpp */,
+				5E61504F2742E90900582F0D /* Window.cpp */,
+				5E61504D2742E87F00582F0D /* DeviceManagement.cpp */,
+				5E6150572742F34500582F0D /* Swapchain.cpp */,
 			);
 			path = VKRenderer;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E6150582742F34500582F0D /* Swapchain.cpp in Sources */,
 				5E10FA1F273FE85800DD965C /* main.cpp in Sources */,
 				5E6150522742E92E00582F0D /* DebugUtils.cpp in Sources */,
 				5E6150502742E90900582F0D /* Window.cpp in Sources */,

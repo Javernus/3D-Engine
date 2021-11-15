@@ -20,7 +20,7 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VKRenderer::debugCallback(
                                                          const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData,
                                                          void* pUserData) {
     
-    std::cerr << "validation layer: " << pCallbackData->pMessage << std::endl;
+    std::cerr << "Validation layer: " << pCallbackData->pMessage << std::endl;
     
     return VK_FALSE;
 }
@@ -34,7 +34,7 @@ void VKRenderer::mainLoop() {
 
 void VKRenderer::createInstance() {
     if (enableValidationLayers && !checkValidationLayerSupport()) {
-        throw std::runtime_error("validation layers requested, but not available!");
+        throw std::runtime_error("Validation layers requested, but not available!");
     }
     
     VkApplicationInfo appInfo{};
@@ -69,7 +69,7 @@ void VKRenderer::createInstance() {
     }
     
     if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS) {
-        throw std::runtime_error("failed to create instance!");
+        throw std::runtime_error("Failed to create instance!");
     }
     
     uint32_t extensionCount = 0;

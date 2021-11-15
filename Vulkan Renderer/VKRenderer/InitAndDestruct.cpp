@@ -22,9 +22,11 @@ void VKRenderer::initVulkan() {
     createSurface();
     pickPhysicalDevice();
     createLogicalDevice();
+    createSwapChain();
 }
 
 void VKRenderer::cleanup() {
+    vkDestroySwapchainKHR(device, swapChain, nullptr);
     vkDestroyDevice(device, nullptr);
     
     if (enableValidationLayers) {
