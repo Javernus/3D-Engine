@@ -77,6 +77,8 @@ class VKRenderer {
     std::vector<VkImage> swapChainImages;
     VkFormat swapChainImageFormat;
     VkExtent2D swapChainExtent;
+    std::vector<VkImageView> swapChainImageViews;
+
     
     
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
@@ -125,6 +127,7 @@ private:
     VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
     VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
     void createSwapChain();
+    void createImageViews();
 };
 
 #endif /* VKRenderer_hpp */
