@@ -10,12 +10,12 @@
 		5E10FA1F273FE85800DD965C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E10FA1E273FE85800DD965C /* main.cpp */; };
 		5E10FA40273FEDC800DD965C /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E10FA3F273FEDC800DD965C /* libglfw.3.3.dylib */; };
 		5E10FA47273FEDE400DD965C /* libglfw.3.3.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E10FA3F273FEDC800DD965C /* libglfw.3.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		5E137E52274007DD00A7EBBE /* libvulkan.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E137E50274007DD00A7EBBE /* libvulkan.1.dylib */; };
-		5E137E53274007DD00A7EBBE /* libvulkan.1.2.189.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E137E51274007DD00A7EBBE /* libvulkan.1.2.189.dylib */; };
-		5E137E54274007E400A7EBBE /* libvulkan.1.2.189.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E137E51274007DD00A7EBBE /* libvulkan.1.2.189.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		5E137E55274007E400A7EBBE /* libvulkan.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E137E50274007DD00A7EBBE /* libvulkan.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		5E137E592740116400A7EBBE /* libMoltenVK.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E137E562740093E00A7EBBE /* libMoltenVK.dylib */; };
-		5E137E5A2740116800A7EBBE /* libMoltenVK.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E137E562740093E00A7EBBE /* libMoltenVK.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5E2FA15027415F5400167511 /* libvulkan.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2FA14E27415F5400167511 /* libvulkan.1.dylib */; };
+		5E2FA15127415F5400167511 /* libvulkan.1.2.189.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2FA14F27415F5400167511 /* libvulkan.1.2.189.dylib */; };
+		5E2FA15227415F5A00167511 /* libvulkan.1.2.189.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E2FA14F27415F5400167511 /* libvulkan.1.2.189.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5E2FA15327415F5A00167511 /* libvulkan.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E2FA14E27415F5400167511 /* libvulkan.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5E2FA15527425A8300167511 /* libMoltenVK.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2FA15427425A8300167511 /* libMoltenVK.dylib */; };
+		5E2FA15627425A8600167511 /* libMoltenVK.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E2FA15427425A8300167511 /* libMoltenVK.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +25,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5E137E5A2740116800A7EBBE /* libMoltenVK.dylib in CopyFiles */,
-				5E137E54274007E400A7EBBE /* libvulkan.1.2.189.dylib in CopyFiles */,
-				5E137E55274007E400A7EBBE /* libvulkan.1.dylib in CopyFiles */,
+				5E2FA15627425A8600167511 /* libMoltenVK.dylib in CopyFiles */,
+				5E2FA15227415F5A00167511 /* libvulkan.1.2.189.dylib in CopyFiles */,
+				5E2FA15327415F5A00167511 /* libvulkan.1.dylib in CopyFiles */,
 				5E10FA47273FEDE400DD965C /* libglfw.3.3.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,13 +35,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E10FA1E273FE85800DD965C /* main.cpp */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; tabWidth = 2; };
+		5E10FA1E273FE85800DD965C /* main.cpp */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		5E10FA37273FEC0B00DD965C /* 3D Engine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "3D Engine"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E10FA3F273FEDC800DD965C /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		5E10FA48273FF53300DD965C /* core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
-		5E137E50274007DD00A7EBBE /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../VulkanSDK/1.2.189.0/macOS/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
-		5E137E51274007DD00A7EBBE /* libvulkan.1.2.189.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.2.189.dylib; path = ../../../VulkanSDK/1.2.189.0/macOS/lib/libvulkan.1.2.189.dylib; sourceTree = "<group>"; };
-		5E137E562740093E00A7EBBE /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = ../../../VulkanSDK/1.2.189.0/MoltenVK/dylib/macOS/libMoltenVK.dylib; sourceTree = "<group>"; };
+		5E2FA14E27415F5400167511 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../VulkanSDK/1.2.189.0/macOS/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
+		5E2FA14F27415F5400167511 /* libvulkan.1.2.189.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.2.189.dylib; path = ../../../VulkanSDK/1.2.189.0/macOS/lib/libvulkan.1.2.189.dylib; sourceTree = "<group>"; };
+		5E2FA15427425A8300167511 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = ../../../VulkanSDK/1.2.189.0/MoltenVK/dylib/macOS/libMoltenVK.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +50,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E10FA40273FEDC800DD965C /* libglfw.3.3.dylib in Frameworks */,
-				5E137E52274007DD00A7EBBE /* libvulkan.1.dylib in Frameworks */,
-				5E137E53274007DD00A7EBBE /* libvulkan.1.2.189.dylib in Frameworks */,
-				5E137E592740116400A7EBBE /* libMoltenVK.dylib in Frameworks */,
+				5E2FA15027415F5400167511 /* libvulkan.1.dylib in Frameworks */,
+				5E2FA15127415F5400167511 /* libvulkan.1.2.189.dylib in Frameworks */,
+				5E2FA15527425A8300167511 /* libMoltenVK.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,9 +80,9 @@
 		5E10FA3E273FEDC800DD965C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5E137E562740093E00A7EBBE /* libMoltenVK.dylib */,
-				5E137E51274007DD00A7EBBE /* libvulkan.1.2.189.dylib */,
-				5E137E50274007DD00A7EBBE /* libvulkan.1.dylib */,
+				5E2FA15427425A8300167511 /* libMoltenVK.dylib */,
+				5E2FA14F27415F5400167511 /* libvulkan.1.2.189.dylib */,
+				5E2FA14E27415F5400167511 /* libvulkan.1.dylib */,
 				5E10FA3F273FEDC800DD965C /* libglfw.3.3.dylib */,
 			);
 			name = Frameworks;
@@ -189,6 +189,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -256,6 +257,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -285,6 +287,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D8SLP8SFR;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/Users/jakejongejans/VulkanSDK/1.2.189.0/macOS/include,
+					/usr/local/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -295,6 +301,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D8SLP8SFR;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/Users/jakejongejans/VulkanSDK/1.2.189.0/macOS/include,
+					/usr/local/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

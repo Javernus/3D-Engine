@@ -23,5 +23,6 @@
 #include <cstdlib>
 
 #include <vector>
+#include <cstring>
 
 #endif /* Header_h */
