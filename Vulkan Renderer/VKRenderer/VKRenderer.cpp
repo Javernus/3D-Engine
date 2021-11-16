@@ -29,7 +29,10 @@ VKAPI_ATTR VkBool32 VKAPI_CALL VKRenderer::debugCallback(
 void VKRenderer::mainLoop() {
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
+        drawFrame();
     }
+    
+    vkDeviceWaitIdle(device);
 }
 
 void VKRenderer::createInstance() {

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5E10FA1A273FE85800DD965C"
-               BuildableName = "3D Engine"
+               BuildableName = "Vulkan Renderer"
                BlueprintName = "Vulkan Renderer"
                ReferencedContainer = "container:Vulkan Renderer.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E10FA1A273FE85800DD965C"
-            BuildableName = "3D Engine"
+            BuildableName = "Vulkan Renderer"
             BlueprintName = "Vulkan Renderer"
             ReferencedContainer = "container:Vulkan Renderer.xcodeproj">
          </BuildableReference>
@@ -74,7 +74,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E10FA1A273FE85800DD965C"
-            BuildableName = "3D Engine"
+            BuildableName = "Vulkan Renderer"
             BlueprintName = "Vulkan Renderer"
             ReferencedContainer = "container:Vulkan Renderer.xcodeproj">
          </BuildableReference>

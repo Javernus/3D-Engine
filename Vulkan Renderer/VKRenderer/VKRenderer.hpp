@@ -24,7 +24,7 @@
 #include <map>
 #include <set>
 #include <optional>
-#include <cstdint> 
+#include <cstdint>
 #include <algorithm>
 #include <fstream>
 
@@ -46,8 +46,10 @@ struct SwapChainSupportDetails {
 class VKRenderer {
     const uint32_t WIDTH = 800;
     const uint32_t HEIGHT = 600;
+    const int MAX_FRAMES_IN_FLIGHT = 2;
+    
     const char** glfwExtensions;
-
+    
     const std::vector<const char*> validationLayers = {
         "VK_LAYER_KHRONOS_validation"
     };
@@ -55,39 +57,55 @@ class VKRenderer {
     const std::vector<const char*> deviceExtensions = {
         VK_KHR_SWAPCHAIN_EXTENSION_NAME
     };
-
-    #ifdef DEBUG
+    
+#ifdef DEBUG
     const bool enableValidationLayers = true;
-    #else
+#else
     const bool enableValidationLayers = false;
-    #endif
-
+#endif
+    
     uint32_t glfwExtensionCount = 0;
-
+    
     GLFWwindow* window;
     
     VkInstance instance;
     VkDebugUtilsMessengerEXT debugMessenger;
+    
     VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
     VkPhysicalDeviceFeatures deviceFeatures{};
     VkDevice device;
+    
     VkQueue graphicsQueue;
     VkQueue presentQueue;
+    
     VkSurfaceKHR surface;
-    VkSwapchainKHR swapChain;
-    std::vector<VkImage> swapChainImages;
-    VkFormat swapChainImageFormat;
-    VkExtent2D swapChainExtent;
-    std::vector<VkImageView> swapChainImageViews;
-    VkRenderPass renderPass;
+    
     VkPipelineLayout pipelineLayout;
     VkPipeline graphicsPipeline;
     
-    static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
-                                                        VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
-                                                        VkDebugUtilsMessageTypeFlagsEXT messageType,
-                                                        const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData,
-                                                        void* pUserData);
+    VkSwapchainKHR swapChain;
+    VkFormat swapChainImageFormat;
+    VkExtent2D swapChainExtent;
+    VkRenderPass renderPass;
+    
+    std::vector<VkImage> swapChainImages;
+    std::vector<VkImageView> swapChainImageViews;
+    std::vector<VkFramebuffer> swapChainFramebuffers;
+    
+    VkCommandPool commandPool;
+    std::vector<VkCommandBuffer> commandBuffers;
+    
+    std::vector<VkSemaphore> imageAvailableSemaphores;
+    std::vector<VkSemaphore> renderFinishedSemaphores;
+    
+    std::vector<VkFence> inFlightFences;
+    std::vector<VkFence> imagesInFlight;
+    
+    size_t currentFrame = 0;
+    
+    bool framebufferResized = false;
+    
+    static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData);
     
 public:
     void run();
@@ -102,6 +120,7 @@ private:
     
     // InitAndDestruct
     void initWindow();
+    static void framebufferResizeCallback(GLFWwindow* window, int width, int height);
     void initVulkan();
     void cleanup();
     
@@ -134,12 +153,34 @@ private:
     VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
     void createSwapChain();
     void createImageViews();
+    void cleanupSwapChain();
+    void recreateSwapChain();
     
     // GraphicsPipeline/
     //   GraphicsPipeline
     void createGraphicsPipeline();
+    
+    //   Shaders
     VkShaderModule createShaderModule(const std::vector<char>& code);
+    
+    //   RenderPass
     void createRenderPass();
+    
+    //   Framebuffers
+    void createFramebuffers();
+    
+    //   CommandPools
+    void createCommandPool();
+    
+    //   CommandBuffers
+    void createCommandBuffers();
+    
+    // Drawing/
+    //   DrawFrame
+    void drawFrame();
+    
+    //   SyncObjects
+    void createSyncObjects();
 };
 
 #endif /* VKRenderer_hpp */

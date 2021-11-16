@@ -11,9 +11,16 @@ void VKRenderer::initWindow() {
     glfwInit();
     
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+//    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
     
-    window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan Renderer", nullptr, nullptr);
+    window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
+    glfwSetWindowUserPointer(window, this);
+    glfwSetFramebufferSizeCallback(window, framebufferResizeCallback);
+}
+
+void VKRenderer::framebufferResizeCallback(GLFWwindow* window, int width, int height) {
+    auto app = reinterpret_cast<VKRenderer*>(glfwGetWindowUserPointer(window));
+    app->framebufferResized = true;
 }
 
 void VKRenderer::initVulkan() {
@@ -26,18 +33,22 @@ void VKRenderer::initVulkan() {
     createImageViews();
     createRenderPass();
     createGraphicsPipeline();
+    createFramebuffers();
+    createCommandPool();
+    createCommandBuffers();
+    createSyncObjects();
 }
 
 void VKRenderer::cleanup() {
-    vkDestroyPipeline(device, graphicsPipeline, nullptr);
-    vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
-    vkDestroyRenderPass(device, renderPass, nullptr);
+    cleanupSwapChain();
     
-    for (auto imageView : swapChainImageViews) {
-        vkDestroyImageView(device, imageView, nullptr);
+    for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
+        vkDestroySemaphore(device, renderFinishedSemaphores[i], nullptr);
+        vkDestroySemaphore(device, imageAvailableSemaphores[i], nullptr);
+        vkDestroyFence(device, inFlightFences[i], nullptr);
     }
     
-    vkDestroySwapchainKHR(device, swapChain, nullptr);
+    vkDestroyCommandPool(device, commandPool, nullptr);
     vkDestroyDevice(device, nullptr);
     
     if (enableValidationLayers) {
