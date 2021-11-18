@@ -172,6 +172,13 @@ void VKRenderer::cleanupSwapChain() {
     }
     
     vkDestroySwapchainKHR(device, swapChain, nullptr);
+    
+    for (size_t i = 0; i < swapChainImages.size(); i++) {
+        vkDestroyBuffer(device, uniformBuffers[i], nullptr);
+        vkFreeMemory(device, uniformBuffersMemory[i], nullptr);
+    }
+    
+    vkDestroyDescriptorPool(device, descriptorPool, nullptr);
 }
 
 void VKRenderer::recreateSwapChain() {
@@ -184,7 +191,7 @@ void VKRenderer::recreateSwapChain() {
     }
     
     vkDeviceWaitIdle(device);
-
+    
     cleanupSwapChain();
     
     createSwapChain();
@@ -192,5 +199,8 @@ void VKRenderer::recreateSwapChain() {
     createRenderPass();
     createGraphicsPipeline();
     createFramebuffers();
+    createUniformBuffers();
+    createDescriptorPool();
+    createDescriptorSets();
     createCommandBuffers();
 }

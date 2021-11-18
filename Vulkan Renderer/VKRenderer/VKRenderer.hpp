@@ -13,9 +13,13 @@
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
 #include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
+#include <chrono>
 
 #include <iostream>
 #include <stdexcept>
@@ -33,6 +37,7 @@
 #include "Structs/Vertex.hpp"
 #include "Structs/QueueFamilyIndices.hpp"
 #include "Structs/SwapChainSupportDetails.hpp"
+#include "Structs/UniformBufferObject.hpp"
 
 #include "Drawing/Vertices.h"
 
@@ -73,6 +78,7 @@ class VKRenderer {
     
     VkSurfaceKHR surface;
     
+    VkDescriptorSetLayout descriptorSetLayout;
     VkPipelineLayout pipelineLayout;
     VkPipeline graphicsPipeline;
     
@@ -102,6 +108,12 @@ class VKRenderer {
     VkDeviceMemory vertexBufferMemory;
     VkBuffer indexBuffer;
     VkDeviceMemory indexBufferMemory;
+    
+    std::vector<VkBuffer> uniformBuffers;
+    std::vector<VkDeviceMemory> uniformBuffersMemory;
+    
+    VkDescriptorPool descriptorPool;
+    std::vector<VkDescriptorSet> descriptorSets;
     
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData);
     
@@ -156,6 +168,11 @@ private:
     void recreateSwapChain();
     
     // GraphicsPipeline/
+    //   Descriptors
+    void createDescriptorSetLayout();
+    void createDescriptorPool();
+    void createDescriptorSets();
+    
     //   GraphicsPipeline
     void createGraphicsPipeline();
     
@@ -176,11 +193,13 @@ private:
     void createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer& buffer, VkDeviceMemory& bufferMemory);
     void createVertexBuffer();
     void createIndexBuffer();
+    void createUniformBuffers();
     void copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
     
     // Drawing/
     //   DrawFrame
     void drawFrame();
+    void updateUniformBuffer(uint32_t currentImage);
     
     //   SyncObjects
     void createSyncObjects();

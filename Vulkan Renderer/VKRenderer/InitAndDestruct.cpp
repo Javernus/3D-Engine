@@ -31,17 +31,23 @@ void VKRenderer::initVulkan() {
     createSwapChain();
     createImageViews();
     createRenderPass();
+    createDescriptorSetLayout();
     createGraphicsPipeline();
     createFramebuffers();
     createCommandPool();
     createVertexBuffer();
     createIndexBuffer();
+    createUniformBuffers();
+    createDescriptorPool();
+    createDescriptorSets();
     createCommandBuffers();
     createSyncObjects();
 }
 
 void VKRenderer::cleanup() {
     cleanupSwapChain();
+    
+    vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
     
     vkDestroyBuffer(device, indexBuffer, nullptr);
     vkFreeMemory(device, indexBufferMemory, nullptr);

@@ -34,6 +34,7 @@
 		5E9C15212743F17300D84BD1 /* DrawFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15202743F17300D84BD1 /* DrawFrame.cpp */; };
 		5E9C15232743F22800D84BD1 /* SyncObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15222743F22800D84BD1 /* SyncObjects.cpp */; };
 		5E9C15292744107100D84BD1 /* Buffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15282744107100D84BD1 /* Buffers.cpp */; };
+		5E9C15312746E6C400D84BD1 /* Descriptors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15302746E6C400D84BD1 /* Descriptors.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +88,8 @@
 		5E9C152A274669B200D84BD1 /* QueueFamilyIndices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QueueFamilyIndices.hpp; sourceTree = "<group>"; };
 		5E9C152B274669E400D84BD1 /* SwapChainSupportDetails.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SwapChainSupportDetails.hpp; sourceTree = "<group>"; };
 		5E9C152C2746DABC00D84BD1 /* Vertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertices.h; sourceTree = "<group>"; };
+		5E9C152E2746E4D600D84BD1 /* UniformBufferObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UniformBufferObject.hpp; sourceTree = "<group>"; };
+		5E9C15302746E6C400D84BD1 /* Descriptors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Descriptors.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,7 @@
 		5E61505A27430DEF00582F0D /* GraphicsPipeline */ = {
 			isa = PBXGroup;
 			children = (
+				5E9C15302746E6C400D84BD1 /* Descriptors.cpp */,
 				5E61505B27430E0700582F0D /* GraphicsPipeline.cpp */,
 				5E9C15142743EB6100D84BD1 /* Framebuffers.cpp */,
 				5E9C15162743EB7D00D84BD1 /* Shaders.cpp */,
@@ -204,6 +208,7 @@
 				5E9C152627440F7800D84BD1 /* Vertex.hpp */,
 				5E9C152A274669B200D84BD1 /* QueueFamilyIndices.hpp */,
 				5E9C152B274669E400D84BD1 /* SwapChainSupportDetails.hpp */,
+				5E9C152E2746E4D600D84BD1 /* UniformBufferObject.hpp */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E61505C27430E0700582F0D /* GraphicsPipeline.cpp in Sources */,
+				5E9C15312746E6C400D84BD1 /* Descriptors.cpp in Sources */,
 				5E9C151B2743EDE500D84BD1 /* CommandPool.cpp in Sources */,
 				5E9C15212743F17300D84BD1 /* DrawFrame.cpp in Sources */,
 				5E9C15152743EB6100D84BD1 /* Framebuffers.cpp in Sources */,
