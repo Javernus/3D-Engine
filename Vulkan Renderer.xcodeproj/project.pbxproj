@@ -30,9 +30,10 @@
 		5E9C15172743EB7D00D84BD1 /* Shaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15162743EB7D00D84BD1 /* Shaders.cpp */; };
 		5E9C15192743EBC100D84BD1 /* RenderPass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15182743EBC100D84BD1 /* RenderPass.cpp */; };
 		5E9C151B2743EDE500D84BD1 /* CommandPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C151A2743EDE500D84BD1 /* CommandPool.cpp */; };
-		5E9C151D2743EEAD00D84BD1 /* CommandBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C151C2743EEAD00D84BD1 /* CommandBuffers.cpp */; };
+		5E9C151D2743EEAD00D84BD1 /* TBD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C151C2743EEAD00D84BD1 /* TBD.cpp */; };
 		5E9C15212743F17300D84BD1 /* DrawFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15202743F17300D84BD1 /* DrawFrame.cpp */; };
 		5E9C15232743F22800D84BD1 /* SyncObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15222743F22800D84BD1 /* SyncObjects.cpp */; };
+		5E9C15292744107100D84BD1 /* Buffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C15282744107100D84BD1 /* Buffers.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,9 +79,14 @@
 		5E9C15162743EB7D00D84BD1 /* Shaders.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shaders.cpp; sourceTree = "<group>"; };
 		5E9C15182743EBC100D84BD1 /* RenderPass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderPass.cpp; sourceTree = "<group>"; };
 		5E9C151A2743EDE500D84BD1 /* CommandPool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandPool.cpp; sourceTree = "<group>"; };
-		5E9C151C2743EEAD00D84BD1 /* CommandBuffers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandBuffers.cpp; sourceTree = "<group>"; };
+		5E9C151C2743EEAD00D84BD1 /* TBD.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TBD.cpp; sourceTree = "<group>"; };
 		5E9C15202743F17300D84BD1 /* DrawFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DrawFrame.cpp; sourceTree = "<group>"; };
 		5E9C15222743F22800D84BD1 /* SyncObjects.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SyncObjects.cpp; sourceTree = "<group>"; };
+		5E9C152627440F7800D84BD1 /* Vertex.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vertex.hpp; sourceTree = "<group>"; };
+		5E9C15282744107100D84BD1 /* Buffers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Buffers.cpp; sourceTree = "<group>"; };
+		5E9C152A274669B200D84BD1 /* QueueFamilyIndices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = QueueFamilyIndices.hpp; sourceTree = "<group>"; };
+		5E9C152B274669E400D84BD1 /* SwapChainSupportDetails.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SwapChainSupportDetails.hpp; sourceTree = "<group>"; };
+		5E9C152C2746DABC00D84BD1 /* Vertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertices.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,7 @@
 		5E6150472742E70000582F0D /* VKRenderer */ = {
 			isa = PBXGroup;
 			children = (
+				5E9C152427440F6300D84BD1 /* Structs */,
 				5E6150672743163400582F0D /* Utils */,
 				5E6150482742E72800582F0D /* VKRenderer.cpp */,
 				5E6150492742E72800582F0D /* VKRenderer.hpp */,
@@ -156,7 +163,8 @@
 				5E9C15162743EB7D00D84BD1 /* Shaders.cpp */,
 				5E9C15182743EBC100D84BD1 /* RenderPass.cpp */,
 				5E9C151A2743EDE500D84BD1 /* CommandPool.cpp */,
-				5E9C151C2743EEAD00D84BD1 /* CommandBuffers.cpp */,
+				5E9C15282744107100D84BD1 /* Buffers.cpp */,
+				5E9C151C2743EEAD00D84BD1 /* TBD.cpp */,
 			);
 			path = GraphicsPipeline;
 			sourceTree = "<group>";
@@ -185,8 +193,19 @@
 			children = (
 				5E9C15202743F17300D84BD1 /* DrawFrame.cpp */,
 				5E9C15222743F22800D84BD1 /* SyncObjects.cpp */,
+				5E9C152C2746DABC00D84BD1 /* Vertices.h */,
 			);
 			path = Drawing;
+			sourceTree = "<group>";
+		};
+		5E9C152427440F6300D84BD1 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				5E9C152627440F7800D84BD1 /* Vertex.hpp */,
+				5E9C152A274669B200D84BD1 /* QueueFamilyIndices.hpp */,
+				5E9C152B274669E400D84BD1 /* SwapChainSupportDetails.hpp */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +293,7 @@
 				5E6150582742F34500582F0D /* Swapchain.cpp in Sources */,
 				5E10FA1F273FE85800DD965C /* main.cpp in Sources */,
 				5E6150522742E92E00582F0D /* DebugUtils.cpp in Sources */,
+				5E9C15292744107100D84BD1 /* Buffers.cpp in Sources */,
 				5E6150502742E90900582F0D /* Window.cpp in Sources */,
 				5E9C15232743F22800D84BD1 /* SyncObjects.cpp in Sources */,
 				5E6150562742E96E00582F0D /* Layers.cpp in Sources */,
@@ -284,7 +304,7 @@
 				5E6150542742E95B00582F0D /* Extensions.cpp in Sources */,
 				5E9C15192743EBC100D84BD1 /* RenderPass.cpp in Sources */,
 				5E61504A2742E72800582F0D /* VKRenderer.cpp in Sources */,
-				5E9C151D2743EEAD00D84BD1 /* CommandBuffers.cpp in Sources */,
+				5E9C151D2743EEAD00D84BD1 /* TBD.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

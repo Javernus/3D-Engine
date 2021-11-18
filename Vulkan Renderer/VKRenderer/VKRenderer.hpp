@@ -15,6 +15,7 @@
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
+#include <glm/glm.hpp>
 
 #include <iostream>
 #include <stdexcept>
@@ -27,21 +28,13 @@
 #include <cstdint>
 #include <algorithm>
 #include <fstream>
+#include <array>
 
-struct QueueFamilyIndices {
-    std::optional<uint32_t> graphicsFamily;
-    std::optional<uint32_t> presentFamily;
-    
-    bool isComplete() {
-        return graphicsFamily.has_value() && presentFamily.has_value();
-    }
-};
+#include "Structs/Vertex.hpp"
+#include "Structs/QueueFamilyIndices.hpp"
+#include "Structs/SwapChainSupportDetails.hpp"
 
-struct SwapChainSupportDetails {
-    VkSurfaceCapabilitiesKHR capabilities;
-    std::vector<VkSurfaceFormatKHR> formats;
-    std::vector<VkPresentModeKHR> presentModes;
-};
+#include "Drawing/Vertices.h"
 
 class VKRenderer {
     const uint32_t WIDTH = 800;
@@ -105,6 +98,11 @@ class VKRenderer {
     
     bool framebufferResized = false;
     
+    VkBuffer vertexBuffer;
+    VkDeviceMemory vertexBufferMemory;
+    VkBuffer indexBuffer;
+    VkDeviceMemory indexBufferMemory;
+    
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData);
     
 public:
@@ -113,6 +111,7 @@ private:
     // Utils/
     //   Utils
     static std::vector<char> readFile(const std::string& filename);
+    uint32_t findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
     
     // VKRenderer
     void createInstance();
@@ -172,8 +171,12 @@ private:
     //   CommandPools
     void createCommandPool();
     
-    //   CommandBuffers
+    //   Buffers
     void createCommandBuffers();
+    void createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer& buffer, VkDeviceMemory& bufferMemory);
+    void createVertexBuffer();
+    void createIndexBuffer();
+    void copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
     
     // Drawing/
     //   DrawFrame
