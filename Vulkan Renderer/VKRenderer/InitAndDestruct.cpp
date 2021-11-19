@@ -35,6 +35,9 @@ void VKRenderer::initVulkan() {
     createGraphicsPipeline();
     createFramebuffers();
     createCommandPool();
+    createTextureImage();
+    createTextureImageView();
+    createTextureSampler();
     createVertexBuffer();
     createIndexBuffer();
     createUniformBuffers();
@@ -46,6 +49,12 @@ void VKRenderer::initVulkan() {
 
 void VKRenderer::cleanup() {
     cleanupSwapChain();
+    
+    vkDestroySampler(device, textureSampler, nullptr);
+    vkDestroyImageView(device, textureImageView, nullptr);
+    
+    vkDestroyImage(device, textureImage, nullptr);
+    vkFreeMemory(device, textureImageMemory, nullptr);
     
     vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
     

@@ -78,7 +78,6 @@ void VKRenderer::pickPhysicalDevice() {
     }
 }
 
-// TODO: Maybe implement separate transfer queue?
 QueueFamilyIndices VKRenderer::findQueueFamilies(VkPhysicalDevice device) {
     QueueFamilyIndices indices;
     
